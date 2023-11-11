@@ -1,0 +1,60 @@
+@import url('style.css');
+
+.container-streaming {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  height: 80%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 80%;
+  height: 100%;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#videoPlayer {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* 버튼 스타일 변경 */
+.w-btn-outline {
+  position: relative;
+  padding: 15px 30px;
+  border-radius: 15px;
+  font-family: "paybooc-Light", sans-serif;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+.w-btn-green-outline {
+  border: 3px solid #77af9c;
+  color: darkgray;
+}
+.w-btn-green-outline:hover {
+  background-color: #77af9c;
+  color: #d7fff1;
+}
+
+.w-btn-green2-outline {
+  border: 3px solid #519d9e;
+  color: darkgray;
+}
+.w-btn-green2-outline:hover {
+  background-color: #519d9e;
+  color: #9dc8c8;
+}

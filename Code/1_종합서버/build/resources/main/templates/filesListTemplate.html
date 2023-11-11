@@ -1,0 +1,62 @@
+<!-- resources/templates/filesListTemplate.html -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jQuery 라이브러리 로드 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Files List</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Number</th>
+        <th>Title</th>
+        <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Thymeleaf의 th:each를 사용하여 데이터 바인딩 -->
+    <tr th:each="file : ${filesList}">
+        <td th:text="${file.fno}"></td>
+        <td th:text="${file.filename}"></td>
+        <td th:text="${file.uploadDate}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: 'http://localhost:8080/video/getFilesList',
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            // 데이터 테이블 초기화
+            var table = $('#datatablesSimple').DataTable({
+                columns: [
+                    { data: 'Number' },
+                    { data: 'Title' },
+                    { data: 'Date' }
+                ]
+            });
+
+            // 데이터를 테이블에 추가
+            $.each(data, function(index, item) {
+                table.row.add({
+                    Number: item.fno,
+                    Title: item.filename,
+                    Date: item.uploadDate
+                }).draw();
+            });
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
+});
+</script>

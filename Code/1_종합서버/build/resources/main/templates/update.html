@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>update</title>
+</head>
+<body>
+<form action="/member/update" method="post">
+  <input type="hidden" th:value="${updateMember.user_no}" name="user_no"><br>
+  아이디: <input type="text" th:value="${updateMember.userId}" name="userId" readonly> <br>
+  비밀번호: <input type="text" th:value="${updateMember.user_password}" name="user_password"> <br>
+  이름: <input type="text" th:value="${updateMember.name}" name="name"> <br>
+  <input type="submit" value="정보수정">
+</form>
+</body>
+</html>

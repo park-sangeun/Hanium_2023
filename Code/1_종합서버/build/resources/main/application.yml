@@ -1,0 +1,52 @@
+server:
+  port: 8080
+  tomcat:
+    basedir: C:/myFiles/public
+
+# database 연동 설정
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    각자 PC에 만들어놓은 Database이름을 써야 합니다.
+    url: jdbc:mysql://localhost:3306/examples?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    #    mysql에 생성한 사용자 계정 정보를 써야 합니다.
+    username: babyssu
+    password: '0000'
+
+  thymeleaf:
+    cache: false
+
+# 파일 업로드 최대 크기: 10MB로 설정 (10MB = 10 * 1024 * 1024)
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  # spring data jpa 설정
+  jpa:
+    properties:
+      hibernate:
+        check_nullability: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  #auto-run 설정
+  devtools:
+    livereload:
+      enabled: true
+
+  freemarker:
+    cache: false
+
+  ros:
+    bridge:
+      uri: http://localhost:9090  # ROS Bridge의 URI
+
+  # WebSocket 설정
+  websocket:
+    servlet:
+      path: /websocket # WebSocket 엔드포인트 경로 설정
+    broker:
+      prefix: /topic # 메시지 브로커 프리픽스 설정 (클라이언트에서 사용)
