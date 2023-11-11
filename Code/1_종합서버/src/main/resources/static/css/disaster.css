@@ -1,0 +1,50 @@
+@import url('style.css');
+
+.container-api {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  height: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  padding-top: 4%;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+}
+
+.map-container,
+.weather-container {
+    width: 100%;
+}
+.weather {
+    padding-left: 5%;
+}
+.weather-box {
+    display: flex;
+}
+.icon img {
+    width: 80px;
+    height: 100%;
+    margin: 20%;
+}
+
+/* 화면이 작을 때 (반응형) */
+
+@media (max-width: 768px) {
+    .container-api {
+        flex-direction: column-reverse;
+    }
+
+    .map-container {
+        order: 2;
+    }
+
+    .weather-container {
+        order: 1;
+    }
+    #map {
+        width: 400px;
+        height: 300px;
+    }
+}

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link href="../css/style.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <script src="../js/navigation.js"></script>
+        <script src="../js/logout.js"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark " id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav-head">
+                            <a class="navbar-brand" href="main"><img src="../images/logo.png" width="100%" height="100%"></a>
+                        </div>
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Main</div>
+                            <a class="nav-link" href="/main">
+                                <div class="sb-nav-link-icon"><i class="bi bi-house"></i></div>
+                                홈
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                실시간 정보
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/streaming">스트리밍</a>
+                                    <a class="nav-link" href="/location">실시간 위치</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link" href="/disaster">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                재난 지역
+                            </a>
+                            <a class="nav-link" href="/controller">
+                                <div class="sb-nav-link-icon"><i class="bi bi-controller"></i></div>
+                                컨트롤러
+                            </a>
+                            <div class="sb-sidenav-menu-heading">Data</div>
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="bi bi-bar-chart-line"></i></div>
+                                로봇 데이터
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="/mrobot">모체 로봇</a>
+                                    <a class="nav-link" href="/srobot">소형 로봇</a>
+                                </nav>
+                            </div>
+                            <a class="nav-link" href="/video/">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                영상 데이터
+                            </a>
+                        </div>
+                        <div class="nav-foot">
+                            <button class="nav-button" type="button" onclick="logout()">로그아웃<i class="bi bi-box-arrow-in-right"></i></button>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <header>
+                    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+                </header>
+                <main>
+                    <div class="container-fluid px-4 py-4 bg-light">
+                        <div class="row">
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-primary shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                                    제작 기간</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">7개월</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    제작 비용</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">1,000,000</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-info shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">진행률
+                                                </div>
+                                                <div class="row align-items-center">
+                                                    <div class="col-auto">
+                                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">95%</div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="progress progress-sm mr-2">
+                                                            <div class="progress-bar bg-info" role="progressbar"
+                                                                 style="width: 80%" aria-valuenow="95" aria-valuemin="0"
+                                                                 aria-valuemax="100"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pending Requests Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-warning shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                    팀 인원</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">5</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-xl-8 col-lg-7 col-md-6 col-sm-6 ">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div
+                                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">개발 과정</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body">
+                                        <div class="mb-4">
+                                            <video class="main_video" autoplay muted controls loop style="width: 100%; height: 100%; display: block;">
+                                                <source src="../videos/main_video.mp4">
+                                            </video>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Pie Chart -->
+                            <div class="col-xl-4 col-lg-5 col-md-6 col-sm-6">
+                                <div class="card shadow mb-4">
+                                    <!-- Card Header - Dropdown -->
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">로봇 수치</h6>
+                                    </div>
+                                    <!-- Card Body -->
+                                    <div class="card-body" style="height: 476px;">
+                                        <div class="chart-pie pt-4 pb-2">
+                                            <canvas id="myRadarChart" width="100%" height="80%"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-7 col-lg-7 col-md-6 col-sm-6">
+                                <div class="card shadow mb-4">
+
+                                    <div
+                                            class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">제작 과정</h6>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="chart-area">
+                                            <canvas id="myAreaChart" width="100%" height="40%"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-5 col-md-6 col-sm-6">
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h6 class="m-0 font-weight-bold text-primary">팀 소개</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <ul class="p-0 m-0">
+                                            <li class="d-flex mb-4 pb-1 align-items-center">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                            <span class="avatar-initial rounded avatar-initial-one">
+                                                <img src="../images/user.png" alt="User" class="avatar-initial-one"/>
+                                            </span>
+                                                </div>
+                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                    <div class="me-2">
+                                                        <h6 class="mb-0">팀장 : 박상은</h6>
+                                                        <small class="text-muted">서버, 백엔드 담당</small>
+                                                    </div>
+                                                    <div class="user-progress">
+                                                        <small class="fw-semibold">20211522</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="d-flex mb-4 pb-1 align-items-center">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                              <span class="avatar-initial rounded avatar-initial-two">
+                                                  <img src="../images/user.png" alt="User" class="avatar-initial-two"/>
+                                              </span>
+                                                </div>
+                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                    <div class="me-2">
+                                                        <h6 class="mb-0">팀원 : 박성욱</h6>
+                                                        <small class="text-muted">모체로봇 담당</small>
+                                                    </div>
+                                                    <div class="user-progress">
+                                                        <small class="fw-semibold">20211524</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="d-flex mb-4 pb-1 align-items-center">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                              <span class="avatar-initial rounded avatar-initial-three">
+                                                  <img src="../images/user.png" alt="User" class="avatar-initial-three"/>
+                                              </span>
+                                                </div>
+                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                    <div class="me-2">
+                                                        <h6 class="mb-0">팀원 : 이건아</h6>
+                                                        <small class="text-muted">프론트엔드 담당</small>
+                                                    </div>
+                                                    <div class="user-progress">
+                                                        <small class="fw-semibold">20201599</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="d-flex mb-4 pb-1 align-items-center">
+                                                <div class="avatar flex-shrink-0 me-3">
+                                              <span class="avatar-initial rounded avatar-initial-four">
+                                                  <img src="../images/user.png" alt="User" class="avatar-initial-four"/>
+                                              </span>
+                                                </div>
+                                                <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                                                    <div class="me-2">
+                                                        <h6 class="mb-0">팀원 : 조민규</h6>
+                                                        <small class="text-muted">소형로봇 담당</small>
+                                                    </div>
+                                                    <div class="user-progress">
+                                                        <small class="fw-semibold">20201611</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted"> &copy; 2023 Baby-SSU</div>
+                            <div class="align">
+                                <div class="muted-bottom">Baby-SSU</div>
+                                <div>About Us</div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="../js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="../js/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+        <script src="../js/dataable.js"></script>
+        <script src="../js/navigation.js"></script>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>list.html</h2>
+<table>
+    <tr>
+        <th>user_no</th>
+        <th>user_id</th>
+        <th>user_password</th>
+        <th>name</th>
+
+        <th>삭제</th>
+    </tr>
+    <tr th:each="member: ${memberList}">
+        <td th:text="${member.user_no}"></td>
+        <td th:text="${member.userId}"></td>
+        <td th:text="${member.user_password}"></td>
+        <td th:text="${member.name}"></td>
+        <!-- list.html 파일 내용 중 일부 -->
+
+
+        <td>
+            <a th:href="@{|/member/delete/${member.user_no}|}" onclick="return confirm('이 회원을 삭제하시겠습니까?')">삭제</a>
+        </td>
+
+    </tr>
+</table>
+</body>
+</html>

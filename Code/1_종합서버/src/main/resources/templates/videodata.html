@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <!-- 스타일 시트 로드 -->
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css" integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker3.css" integrity="sha512-g8qvlohUYGYU7uLywjOe1q5CMkwN/qZZcgGs0Ar+nMx6viaMSNmru+p/UrD0FeeMrw50cvMkiytdSQP/PqRHeA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- jQuery 라이브러리 -->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- bootstrap 관련 스크립트 로드 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <!-- script 관련 스크립트 로드 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js" integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/locales/bootstrap-datepicker.ko.min.js" integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.js"></script>
+    <script src="/js/scripts.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/logout.js"></script>
+</head>
+<body class="sb-nav-fixed">
+<div id="layoutSidenav">
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark " id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav-head">
+                    <a class="navbar-brand" href="main"><img src="../images/logo.png" width="100%" height="100%"></a>
+                </div>
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Main</div>
+                    <a class="nav-link" href="/main">
+                        <div class="sb-nav-link-icon"><i class="bi bi-house"></i></div>
+                        홈
+                    </a>
+                    <div class="sb-sidenav-menu-heading">Interface</div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        실시간 정보
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="/streaming">스트리밍</a>
+                            <a class="nav-link" href="/location">실시간 위치</a>
+                        </nav>
+                    </div>
+                    <a class="nav-link" href="/disaster">
+                        <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                        재난 지역
+                    </a>
+                    <a class="nav-link" href="/controller">
+                        <div class="sb-nav-link-icon"><i class="bi bi-controller"></i></div>
+                        컨트롤러
+                    </a>
+                    <div class="sb-sidenav-menu-heading">Data</div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                        <div class="sb-nav-link-icon"><i class="bi bi-bar-chart-line"></i></div>
+                        로봇 데이터
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="/mrobot">모체 로봇</a>
+                            <a class="nav-link" href="/srobot">소형 로봇</a>
+                        </nav>
+                    </div>
+                    <a class="nav-link" href="/video/">
+                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                        영상 데이터
+                    </a>
+                </div>
+                <div class="nav-foot">
+                    <button class="nav-button" type="button" onclick="logout()">로그아웃<i class="bi bi-box-arrow-in-right"></i></button>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id="layoutSidenav_content">
+        <header>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        </header>
+        <main>
+            <div class="container-date px-4 py-4">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        DataTable Example
+                    </div>
+                    <div class="card-body">
+                        <!-- 테이블 내용 -->
+                        <table id="datatablesSimple">
+                            <thead>
+                            <tr>
+                                <th>Number</th>
+                                <th>Title</th>
+                                <th>Date</th>
+                            </tr>
+                            </thead>
+                            <tbody id="tableBody"></tbody>
+                        </table>
+
+                        <script>
+                            $(document).ready(function() {
+                                var table = $('#datatablesSimple').DataTable();
+
+                                $.ajax({
+                                    url: 'http://localhost:8080/video/getFilesList',
+                                    method: 'GET',
+                                    dataType: 'json',
+                                    success: function(data) {
+                                        $.each(data, function(index, item) {
+                                            var filenameLink = '<a href="#" data-file-id="' + item.fno + '">' + item.filename + '</a>';
+                                            table.row.add([
+                                                item.fno,
+                                                filenameLink,
+                                                item.uploadDate
+                                            ]).draw();
+                                        });
+
+                                        $('#datatablesSimple tbody').on('click', 'a', function(e) {
+                                            e.preventDefault();
+                                            var fileId = $(this).attr('data-file-id');
+                                            var encodedFileId = encodeURIComponent(fileId);
+                                            window.location.href = '/video/videoview?fileId=' + encodedFileId;
+                                        });
+                                    },
+                                    error: function(xhr, status, error) {
+                                        console.error(error);
+                                    }
+                                });
+                            });
+                        </script>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        <footer class="py-4 bg-light mt-auto">
+            <div class="container-fluid px-4">
+                <div class="d-flex align-items-center justify-content-between small">
+                    <div class="text-muted"> &copy; 2023 Baby-SSU</div>
+                    <div class="align">
+                        <div class="muted-bottom">Baby-SSU</div>
+                        <div>About Us</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        </div>
+    </div>
+    <script src="../js/navigation.js"></script>
+    </body>
+</html>
