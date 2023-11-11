@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Login - SB Admin</title>
+    <!-- 외부 CSS 파일에 대한 링크 -->
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+<body style="background-image: url('/images/loginback.jpg'); background-size: cover; background-repeat: no-repeat; height: 100vh;">
+<!-- 나머지 HTML 코드 -->
+<div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-5">
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                            <div class="card-body">
+                                <form th:action="@{/member/login}" method="post">
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="userId" name="userId" type="text" placeholder="Enter your ID" />
+                                        <label for="userId">ID</label>
+                                    </div>
+                                    <div class="form-floating mb-3">
+                                        <input class="form-control" id="user_password" name="user_password" type="password" placeholder="Password" />
+                                        <label for="user_password">Password</label>
+                                    </div>
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
+                                        <label class="form-check-label" for="inputRememberPassword">Remember Id</label>
+
+                                    </div>
+
+                                    <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
+                                        <button type="submit" class="btn btn-primary">Login</button>
+                                    </div>
+                                </form>
+
+                                <!-- 로그인 실패 시 알림 메시지 -->
+                                <div class="alert alert-danger mt-3" th:if="${loginFailed}">
+                                    로그인 실패. 아이디 또는 비밀번호가 잘못되었습니다. </br> 다시 시도해주세요.
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<footer class="py-4 bg-light login-footer">
+    <div class="px-4">
+        <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted"> &copy; 2023 Baby-SSU</div>
+            <div class="align">
+                <div class="muted-bottom">Baby-SSU</div>
+                <div>About Us</div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+
+</body>
+</html>
