@@ -46,7 +46,7 @@ sudo pip3 install Adafruit_DHT
 2. dht22 파일 실행
 
 ### 라즈베리파이 적외선 카메라 센서를 이용한 Streaming
-1. streaming_final 파일 실행
+1. streaming 파일 실행
 2. "http://172.20.10.7:8000/streaming" 페이지로 external 접근하여 뷰 확인
 3. 2번의 path와 self.path 맞춰주면 ('/streaming') 통신 가능
 
